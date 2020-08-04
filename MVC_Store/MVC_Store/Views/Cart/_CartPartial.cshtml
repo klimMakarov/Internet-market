@@ -1,0 +1,27 @@
+﻿@model MVC_Store.Models.ViewModels.Cart.CartVM
+
+@if (Model.Quantity == 0 || !Request.IsAuthenticated)
+{
+    <div class="ajaxcart">
+        Your cart is empty
+        <br />
+        @Html.ActionLink("Checkout", "Index")
+    </div>
+}
+else if (Model.Quantity == 1)
+{
+    <div class="ajaxcart">
+        Your cart: @Model.Quantity item - @Model.Price ₽
+        <br />
+        @Html.ActionLink("Checkout", "Index")
+    </div>
+}
+else if (Model.Quantity > 1)
+{
+    <div class="ajaxcart">
+        Your cart: @Model.Quantity items - @Model.Price ₽
+        <br />
+        @Html.ActionLink("Checkout", "Index")
+    </div>
+}
+
